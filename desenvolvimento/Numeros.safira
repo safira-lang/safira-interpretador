@@ -1,0 +1,30 @@
+# Vetor_numero
+
+# Função: Crie um algoritmo que armazene 5 números
+# Autor: Ronnie
+# Data: 26/05/2020
+# Transcrição: Gabriel Gregório
+
+lista de numeros com 4 posicoes
+soma = 0
+i = 1
+ 
+# cadastrar
+enquanto i <= 4 faca {
+    mostre "Digite o ", i+1, "o. número..: "
+    numeros na posicao i recebe input
+    pos = numeros na posicao i
+    soma = soma + pos
+    i = i + 1
+} 
+
+# imprimir => impressão
+i = 1
+enquanto i <= 4 faca {
+    mostre numeros na posicao i
+    i = i + 1
+} 
+
+mostre "A média dos números acima é ", soma/4
+
+

@@ -1,0 +1,63 @@
+  "declarar_classes":{
+    "comando":[
+      ["class ","en-us"],
+      ["classe ","pt-br"],
+      ["clase ","es"]
+    ],
+    "cor":"condicionais"
+  },
+
+        # Classes
+        self.dic_classes = {}
+
+
+                        elif lst_ultimo_teste[3] == "declararClasse":
+                    lst_ultimo_teste[3] = "fazerNada"
+
+
+                    #'bloco':str_bloco_salvo[1:].strip()
+
+                    self.dic_classes[lst_ultimo_teste[4]] = {'funcoes': {}, 'variaveis': {}}
+
+    def funcao_declarar_classe(self, nome_da_classe):
+        # Se o nome da função não está no padrão
+        teste =self.analisa_padrao_variavel(nome_da_classe)
+        if not teste[0]:
+            return teste
+
+        self.dic_classes[nome_da_classe] = {'funcoes': {}, 'variaveis': {}}
+
+        return [True, True, 'booleano', 'declararClasse', nome_da_classe]
+
+
+            ##################################################################
+            #                             CLASSES                            #
+            ##################################################################
+
+            if caractere in self.dicLetras["declarar_classes"] or not self.compilado:
+                __resultado = self.analisa_instrucao('^(<declarar_classes>)__var__$', linha, self.compilado)
+                if __resultado[0]: return [self.funcao_declarar_classe(__resultado[1][2]),self.num_linha, ""]
+
+
+
+    def inicializar_classe(self, possivel_variavel):
+
+        ##################################################################
+        #                             FUNÇÕES                            #
+        ##################################################################
+
+        if caractere in self.dicLetras["funcoes"] or not self.compilado:
+            __resultado = self.analisa_instrucao('^(<funcoes>)(.*)(<recebeParametros_parentese_abre>)(.*)(<recebeParametros_parentese_fecha>)$', possivel_variavel, self.compilado)
+            if __resultado[0]: return [self.funcao_declarar_funcao(__resultado[1][2], __resultado[1][4], classe=True),self.num_linha, "funcoes"]
+
+            __resultado = self.analisa_instrucao('^(<funcoes>)(.*)(<recebeParametros>)(.*)$', possivel_variavel, self.compilado)
+            if __resultado[0]: return [self.funcao_declarar_funcao(__resultado[1][2], __resultado[1][4], classe=True),self.num_linha, "funcoes"]
+
+            __resultado = self.analisa_instrucao('^(<funcoes>)(\\s*[\\w*\\_]*\\s*)(<recebeParametros_parentese_abre>)\\s*(<recebeParametros_parentese_fecha>)$', linha, self.compilado)
+            if __resultado[0]: return [self.funcao_declarar_funcao(__resultado[1][2], classe=True), self.num_linha, "funcoes"]
+
+            __resultado = self.analisa_instrucao('^(<funcoes>)(\\s*[\\w*\\_]*\\s*)$', possivel_variavel, self.compilado)
+            if __resultado[0]: return [self.funcao_declarar_funcao(__resultado[1][2], classe=True), self.num_linha, "funcoes"]
+
+        return [ [False, "{}'{}'".format(  self.msg('comando_desconhecido'), possivel_variavel  ), 'string', 'fazerNada'], self.num_linha, ""]
+
