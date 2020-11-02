@@ -1,4 +1,4 @@
-![GitHub estrelas](https://img.shields.io/github/stars/safira-lang/safira)
+![GitHub estrelas](https://img.shields.io/github/stars/safira-lang/safira-interpretador)
 
 # Introdução
 
